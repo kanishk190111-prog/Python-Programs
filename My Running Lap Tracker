@@ -1,0 +1,41 @@
+def calculate_points_formula(laps):
+    steps = 1
+    return laps * 10, steps
+
+
+def calculate_points_loop(laps):
+    steps = 0
+    total = 0
+    steps += 1
+    
+    for _ in range(laps):
+        total += 10
+        steps += 1
+        
+    steps += 1
+    return total, steps
+
+
+def calculate_points_nested(laps):
+    steps = 0
+    total = 0
+    steps += 1
+    
+    for _ in range(laps):
+        for _ in range(1):
+            total += 10
+            steps += 1
+            
+    steps += 1
+    return total, steps
+
+
+laps_run = 5
+
+res_formula, steps_formula = calculate_points_formula(laps_run)
+res_loop, steps_loop = calculate_points_loop(laps_run)
+res_nested, steps_nested = calculate_points_nested(laps_run)
+
+print(f"Formula Result: {res_formula} | Steps: {steps_formula}")
+print(f"Loop Result: {res_loop} | Steps: {steps_loop}")
+print(f"Nested Loop Result: {res_nested} | Steps: {steps_nested}")
